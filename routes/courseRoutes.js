@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const Course = require('../models/Course');
+const bcrypt = require('bcrypt'); // for password hashing
+const { User } = require('../models/User');
 
 // Create a new cours
 router.post('/courses', async (req, res) => {
@@ -68,5 +70,7 @@ router.delete('/courses/:courseId', async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+
 
 module.exports = router;
